@@ -8,7 +8,7 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background: linear-gradient(to top, #ffdee9, #b5fffc);
+      background: linear-gradient(to top, #ffe0ec, #ccf2ff);
       font-family: 'Segoe UI', sans-serif;
     }
 
@@ -23,7 +23,8 @@
       color: #ff3366;
       font-weight: bold;
       animation: marquee 10s linear infinite;
-      text-shadow: 2px 2px 5px white;
+      text-align: center;
+      text-shadow: 2px 2px 4px white;
     }
 
     @keyframes marquee {
@@ -33,20 +34,22 @@
 
     /* Trái tim bay */
     .heart {
-      position: absolute;
+      position: fixed;
+      bottom: 0;
       color: red;
-      font-size: 20px;
-      animation: floatUp 5s linear infinite;
+      font-size: 24px;
+      animation: floatUp 5s linear forwards;
       opacity: 0.8;
+      pointer-events: none;
     }
 
     @keyframes floatUp {
       0% {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         opacity: 1;
       }
       100% {
-        transform: translateY(-800px);
+        transform: translateY(-100vh) scale(1.5);
         opacity: 0;
       }
     }
@@ -55,26 +58,26 @@
 <body>
 
   <!-- Chữ chạy ngang -->
-  <div class="marquee">Anh yêu em nhiều lắm 💕 Anh yêu em nhiều lắm 💕</div>
+  <div class="marquee">Anh yêu em nhiều lắm 💖 Anh yêu em nhiều lắm 💖 Anh yêu em nhiều lắm 💖</div>
 
-  <!-- Trái tim bay -->
+  <!-- Trái tim bay khắp màn hình -->
   <script>
     function createHeart() {
       const heart = document.createElement('div');
       heart.classList.add('heart');
       heart.textContent = '❤️';
-      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.left = Math.random() * 100 + 'vw'; // ngẫu nhiên ngang màn hình
       heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      heart.style.animationDuration = (Math.random() * 2 + 3) + 's'; // bay nhanh/chậm khác nhau
       document.body.appendChild(heart);
 
       setTimeout(() => {
         heart.remove();
-      }, 5000);
+      }, 5000); // Xoá sau 5 giây
     }
 
-    setInterval(createHeart, 300); // tạo trái tim mỗi 0.3 giây
+    setInterval(createHeart, 150); // tạo trái tim mỗi 0.15 giây
   </script>
 
 </body>
 </html>
-
