@@ -73,7 +73,7 @@
 
       setTimeout(() => {
         heart.remove();
-      }, 5000); // Xoá sau 5 giây
+      }, 50000); // Xoá sau 5 giây
     }
 
     setInterval(createHeart, 150); // tạo trái tim mỗi 0.15 giây
@@ -81,3 +81,39 @@
 
 </body>
 </html>
+<!-- Câu hỏi tình yêu -->
+<div id="questionBox" style="position: fixed; bottom: 100px; width: 100%; text-align: center;">
+  <h2 style="color: #ff3399; font-size: 24px;">Em có đồng ý làm người yêu anh không? 🥺</h2>
+  <button onclick="yes()" style="padding: 10px 20px; font-size: 18px; background-color: #4CAF50; color: white; border: none; border-radius: 10px; margin-right: 10px; cursor: pointer;">Có 💘</button>
+  <button id="noBtn" style="padding: 10px 20px; font-size: 18px; background-color: #f44336; color: white; border: none; border-radius: 10px; cursor: pointer;">Không 💔</button>
+</div>
+
+<!-- Kết quả -->
+<div id="answer" style="position: fixed; bottom: 50%; left: 50%; transform: translate(-50%, 50%); text-align: center; font-size: 28px; color: #ff3399; display: none;">
+  💞 Anh hứa sẽ làm em hạnh phúc mãi mãi 💞
+</div>
+
+<script>
+  // Hàm khi bấm "Có"
+  function yes() {
+    alert("Okii giờ em đã là người yêu anh 💖");
+    document.getElementById('questionBox').style.display = 'none';
+    document.getElementById('answer').style.display = 'block';
+  }
+
+  // Nút "Không" sẽ chạy trốn khi di chuột đến gần
+  const noBtn = document.getElementById('noBtn');
+  noBtn.addEventListener('mouseenter', () => {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 150) + 50; // tránh quá sát đáy
+    noBtn.style.position = 'fixed';
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+  });
+
+  // Nếu có vô tình bấm được (rất khó), hiện alert
+  noBtn.addEventListener('click', () => {
+    alert("Anh sẽ đợi đến khi em đồng ý 😢");
+  });
+</script>
+
