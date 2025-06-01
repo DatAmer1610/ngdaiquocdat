@@ -8,3 +8,35 @@
   <p>Đây là WebSite Của Đạt.</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiệu ứng vào trang</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="fade-in">Chào mừng bạn đến với trang web của tôi!</h1>
+  <p class="fade-in" style="animation-delay: 0.5s;">Hiệu ứng đơn giản khi tải trang.</p>
+</body>
+</html>
