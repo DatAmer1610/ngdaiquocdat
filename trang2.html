@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang tình yêu ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(to top, #ffdee9, #b5fffc);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Chữ chạy ngang */
+    .marquee {
+      position: absolute;
+      top: 30%;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 36px;
+      color: #ff3366;
+      font-weight: bold;
+      animation: marquee 10s linear infinite;
+      text-shadow: 2px 2px 5px white;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Trái tim bay */
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 20px;
+      animation: floatUp 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Chữ chạy ngang -->
+  <div class="marquee">Anh yêu em nhiều lắm 💕 Anh yêu em nhiều lắm 💕</div>
+
+  <!-- Trái tim bay -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300); // tạo trái tim mỗi 0.3 giây
+  </script>
+
+</body>
+</html>
 
